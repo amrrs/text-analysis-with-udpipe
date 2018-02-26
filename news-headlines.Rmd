@@ -1,29 +1,32 @@
 ---
 title: "Easy Text Analysis on ABC News Headlines"
 output: 
-    md_document
-
+  html_document:
+        toc: yes
+        theme: cosmo
+        highlight: espresso
+        code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
-#setwd('C:\\Users\\SA31\\Desktop\\New folder')
+setwd('C:\\Users\\SA31\\Desktop\\New folder')
 news <- read.csv('abcnews-date-text.csv', header = T, stringsAsFactors = F)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## What is the purpose of this Kernel:
+## What is the purpose of this:
 
-The primary aim of this Kernel is to introduce this simple-to-use but effective R package `udpipe` for Text Analysis. 
+Text Analysis has been seen as one of the blackboxes of Data Analytics. The aim of this post is to introduce this simple-to-use but effective R package udpipe for Text Analysis.
 
 ## About udpipe Package 
 
-UDPipe - R package provides *language-agnostic* tokenization, tagging, lemmatization and dependency parsing of raw text, which is an essential part in natural language processing.
+[UDPipe](https://github.com/bnosac/udpipe) - R package provides *language-agnostic* tokenization, tagging, lemmatization and dependency parsing of raw text, which is an essential part in natural language processing.
 
 
 ## Input Dataset 
 
 
-This includes the entire corpus of articles published by the ABC website in the given time range. With a volume of 200 articles per day and a good focus on international news, we can be fairly certain that every event of significance has been captured here.
+This includes the entire corpus of articles published by the ABC website in the given time range. With a volume of 200 articles per day and a good focus on international news, we can be fairly certain that every event of significance has been captured here.  This dataset can be downloaded from [Kaggle Datasets](https://www.kaggle.com/therohk/million-headlines).
 
 ```{r date_spread}
 library(dplyr)
